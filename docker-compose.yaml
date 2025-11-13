@@ -17,7 +17,7 @@ services:
     container_name: dbt_container
     volumes:
       # Map your local project directory
-      - /path/to/project_dir:/usr/app
+      - .:/usr/app
     depends_on:
       - db
     working_dir: /usr/app
