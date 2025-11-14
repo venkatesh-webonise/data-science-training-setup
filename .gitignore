@@ -1,3 +1,15 @@
+.DS_Store
 list
+dbt/
+logs/
+flows/__pycache__/
 
-training-env
+training_dbt/dbt_packages/
+training_dbt/dbt_internal_packages/
+training_dbt/logs/
+training_dbt/target/
+training_dbt/.vscode
+
+training_dbt/.DS_Store
+training_dbt/.user.yml
+training_dbt/package-lock.yml

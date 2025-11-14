@@ -1,6 +1,3 @@
--- Test to ensure net income is positive after the first quarter (month > 3)
--- This test passes when it returns zero rows (no violations found)
-
 with income_data as (
     select
         year,

@@ -1,10 +1,7 @@
 {% test sequential_months(model, year_column, month_column) %}
 
--- Custom test to validate that months are sequential with no gaps
--- This test uses ROW_NUMBER() to create a sequence and checks for gaps
 
 with ordered_months as (
-    -- Create a sequence number for each unique year-month combination
     select
         {{ year_column }} as year,
         {{ month_column }} as month,
@@ -15,7 +12,6 @@ with ordered_months as (
 ),
 
 gaps as (
-    -- Self-join to find gaps between consecutive months
     select
         o1.year as current_year,
         o1.month as current_month,
@@ -31,7 +27,6 @@ gaps as (
        or (o2.year_month is null and o1.rn < (select max(rn) from ordered_months))
 )
 
--- Return rows where gaps exist (test fails if any rows are returned)
 select * from gaps
 
 {% endtest %}
