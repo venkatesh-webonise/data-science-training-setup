@@ -47,7 +47,7 @@ services:
     volumes:
       - ./prefect_data:/home/prefect/.prefect
       # Change the path to your local path
-      - /path/to/project:/usr/app
+      - .:/usr/app
     depends_on:
       db:
         condition: service_healthy
@@ -77,7 +77,7 @@ services:
     volumes:
       - ./prefect_data:/home/prefect/.prefect
       # Change the path to your local path
-      - /path/to/project:/usr/app
+      - .:/usr/app
     depends_on:
       prefect:
         condition: service_started
